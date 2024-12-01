@@ -37,25 +37,19 @@ impl DayTrait<DayOne> for DayOne {
         list_a.sort();
         list_b.sort();
 
-        let mut sum = 0;
-        for (a, b) in list_a.iter().zip(list_b.iter()) {
-            let val: i64 = a - b;
-            sum += val.abs();
-        }
-
-        return sum;
+        return list_a
+            .iter()
+            .zip(list_b.iter())
+            .into_iter()
+            .map(|(a, b)| (a - b).abs())
+            .sum();
     }
     fn part_two(&self) -> i64 {
         let (list_a, list_b) = self.read_input().expect("read input form file");
 
-        let sum = list_a
+        return list_a
             .into_iter()
-            .map(|x| {
-                let count = list_b.to_owned().into_iter().filter(|&e| e == x).count() as i64;
-                return x * count;
-            })
+            .map(|x| x * list_b.to_owned().into_iter().filter(|&e| e == x).count() as i64)
             .sum();
-
-        return sum;
     }
 }
