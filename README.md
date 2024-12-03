@@ -2,3 +2,4 @@
 
 [day one](src/days/day_one.rs)
 [day two](src/days/day_two.rs)
+[day three](src/days/day_three.rs)
