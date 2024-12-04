@@ -4,7 +4,6 @@ use anyhow::{Ok, Result};
 use regex::Regex;
 use std::fs::File;
 use std::io::{self, BufRead};
-use std::ptr::addr_of_mut;
 
 pub struct DayThree {
     pub day: Day,
