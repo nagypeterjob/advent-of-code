@@ -6,4 +6,6 @@
 
 [day three](src/days/day_three.rs)
 
-[day fout](src/days/day_four.rs)
+[day four](src/days/day_four.rs)
+
+[day five](src/days/day_five.rs)
