@@ -9,3 +9,5 @@
 [day four](src/days/day_four.rs)
 
 [day five](src/days/day_five.rs)
+
+[day five](src/days/day_six.rs)
