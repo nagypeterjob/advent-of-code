@@ -189,5 +189,6 @@ impl DayTrait<DaySix> for DaySix {
                 was_loop(initial_x, initial_y, new_m, Direction::Up, IndexMap::new())
             })
             .count() as i64
+        0
     }
 }
