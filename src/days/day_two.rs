@@ -43,6 +43,9 @@ impl DayTrait<DayTwo> for DayTwo {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         let input = self.read_input().expect("construct nested loop");
 

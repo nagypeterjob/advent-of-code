@@ -128,6 +128,9 @@ impl DayTrait<DayFour> for DayFour {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         let m = Matrix {
             data: self.read_input().expect("building character matrix"),

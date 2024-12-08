@@ -18,6 +18,7 @@ pub trait DayTrait<T> {
     fn display(&self) -> String;
     fn part_one(&self) -> i64;
     fn part_two(&self) -> i64;
+    fn solution(&self) -> (i64, i64);
 }
 
 pub fn increment_id() -> u64 {

@@ -51,6 +51,9 @@ impl DayTrait<DaySix> for DaySix {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         /*let m = vec![
             vec!['.', '.', '.', '.', '#', '.', '.', '.', '.', '.'],
@@ -189,6 +192,5 @@ impl DayTrait<DaySix> for DaySix {
                 was_loop(initial_x, initial_y, new_m, Direction::Up, IndexMap::new())
             })
             .count() as i64
-        0
     }
 }

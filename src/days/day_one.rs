@@ -32,6 +32,9 @@ impl DayTrait<DayOne> for DayOne {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         let (mut list_a, mut list_b) = self.read_input().expect("read input form file");
         list_a.sort();

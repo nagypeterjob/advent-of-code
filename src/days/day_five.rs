@@ -54,6 +54,9 @@ impl DayTrait<DayFive> for DayFive {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         let (rules, updates) = self.read_input().expect("read input");
 

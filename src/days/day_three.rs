@@ -85,6 +85,9 @@ impl DayTrait<DayThree> for DayThree {
     fn display(&self) -> String {
         return format!("Day #{}", self.day);
     }
+    fn solution(&self) -> (i64, i64) {
+        (0, 0)
+    }
     fn part_one(&self) -> i64 {
         return self
             .read_input()
