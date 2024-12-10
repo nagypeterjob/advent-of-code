@@ -7,6 +7,45 @@ pub struct DayNine {
     pub day: Day,
 }
 
+fn part2(representation: &mut Vec<Option<i64>>, mut id: i64) {
+    id -= 1;
+    let mut end = representation.len() as isize - 1;
+    while end > 0 {
+        let mut ptr = end as usize;
+        while representation[ptr].is_none() || representation[ptr] != Some(id) {
+            ptr -= 1;
+        }
+        let mut last = 0;
+        let mut start_cache = 0;
+        let mut end_cache = 0;
+
+        while ptr >= end_cache && representation[ptr - end_cache] == Some(id) {
+            end_cache += 1;
+        }
+        if id == 0 {
+            break;
+        }
+        id -= 1;
+        while start_cache < end_cache && last <= ptr {
+            last += start_cache;
+            start_cache = 0;
+            while representation[last].is_some() {
+                last += 1;
+            }
+            while last + start_cache <= ptr && representation[last + start_cache].is_none() {
+                start_cache += 1;
+            }
+        }
+
+        if start_cache >= end_cache {
+            for i in 0..end_cache {
+                representation.swap(last + i, ptr - i);
+            }
+        }
+        end = (ptr - end_cache) as isize;
+    }
+}
+
 impl DayNine {
     fn read_input(&self) -> Result<Vec<char>> {
         let mut chars: Vec<char> = vec![];
@@ -41,15 +80,15 @@ impl DayTrait<DayNine> for DayNine {
         let mut id: i64 = 0;
         for (i, c) in input.iter().enumerate() {
             let d = c.to_digit(10).expect("parsing char") as i64;
-            for _ in 0..d {
-                if i % 2 == 0 {
+            if i % 2 == 0 {
+                for _ in 0..d {
                     representation.push(Some(id));
-                } else {
+                }
+                id += 1
+            } else {
+                for _ in 0..d {
                     representation.push(None);
                 }
-            }
-            if i % 2 == 0 {
-                id += 1;
             }
         }
 
@@ -69,13 +108,21 @@ impl DayTrait<DayNine> for DayNine {
             i += 1;
             j -= 1;
         }
+
+        let mut shadow2 = representation.clone();
+        part2(&mut shadow2, id);
+
         (
             shadow
                 .into_iter()
                 .enumerate()
                 .filter_map(|(i, d)| d.map(|x| x * i as i64))
                 .sum(),
-            0,
+            shadow2
+                .into_iter()
+                .enumerate()
+                .filter_map(|(i, d)| d.map(|x| x * i as i64))
+                .sum(),
         )
     }
 }

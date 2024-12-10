@@ -2,7 +2,8 @@ mod days;
 
 use days::{
     day::DayTrait, day_eight::DayEight, day_five::DayFive, day_four::DayFour, day_nine::DayNine,
-    day_one::DayOne, day_seven::DaySeven, day_six::DaySix, day_three::DayThree, day_two::DayTwo,
+    day_one::DayOne, day_seven::DaySeven, day_six::DaySix, day_ten::DayTen, day_three::DayThree,
+    day_two::DayTwo,
 };
 
 fn main() {
@@ -47,6 +48,11 @@ fn main() {
     println!("Solution Part one: {}, Part two: {}", p1, p2);
 
     let day = DayNine::new();
+    println!("{}", day.display());
+    let (p1, p2) = day.solution();
+    println!("Solution Part one: {}, Part two: {}", p1, p2);
+
+    let day = DayTen::new();
     println!("{}", day.display());
     let (p1, p2) = day.solution();
     println!("Solution Part one: {}, Part two: {}", p1, p2);

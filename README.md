@@ -16,4 +16,6 @@
 
 [day eight](src/days/day_eight.rs)
 
-[day nince](src/days/day_nine.rs)
+[day nine](src/days/day_nine.rs)
+
+[day ten](src/days/day_ten.rs)
