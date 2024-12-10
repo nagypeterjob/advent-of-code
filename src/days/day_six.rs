@@ -185,12 +185,14 @@ impl DayTrait<DaySix> for DaySix {
             }
         };
 
-        seen.iter()
-            .filter(|&((seen_x, seen_y), _)| {
-                let mut new_m = m.clone();
-                new_m[*seen_x][*seen_y] = '#';
-                was_loop(initial_x, initial_y, new_m, Direction::Up, IndexMap::new())
-            })
-            .count() as i64
+        // seen.iter()
+        //     .filter(|&((seen_x, seen_y), _)| {
+        //         let mut new_m = m.clone();
+        //         new_m[*seen_x][*seen_y] = '#';
+        //         was_loop(initial_x, initial_y, new_m, Direction::Up, IndexMap::new())
+        //     })
+        //     .count() as i64
+
+        0
     }
 }
